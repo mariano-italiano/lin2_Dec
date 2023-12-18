@@ -1,0 +1,8 @@
+grep Fra wina.txt | awk -F "," '{print $1 "," $3 "," $4}'
+
+echo -n "Innych win niz z Francji jest: " ; sed -n '2,$ p' wina.txt | grep -v Fra | wc -l
+
+sed -i '2,3s/wytrawne/półwytrawne/g' wina.txt
+
+sed -i '5i\Nowe Wino Włoskie,Ita,czerwone wytrawne,42.00' wina.txt
+

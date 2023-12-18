@@ -1,0 +1,4 @@
+123 Foo foo foo
+foo /bin/bash cash Centos foobar machine 456 
+To jest ostatnia linia w pliku
+machine123
