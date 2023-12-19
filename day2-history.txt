@@ -1,0 +1,485 @@
+crontab -l
+crontab -l -u student 
+crontab -e
+which echo
+which date
+crontab -e
+ls -la /tmp/cron-date.log 
+cat /tmp/cron-date.log
+crontab -e
+rm -rm /tmp/cron-date.log 
+rm -rf /tmp/cron-date.log 
+ls -la /tmp/cron-date.log 
+date
+ls -la /tmp/cron-date.log 
+crontab -e
+crontab -l
+ls -la /tmp/cron-date*
+watch -n1 ls -la /tmp/cron-date*
+less /var/log/cron
+ls -al /tmp
+crontab -e
+systemctl restart chronyd | at 8pm
+which /bin/sh
+ls -la `which /bin/sh`
+systemctl restart sshd | at 16:32
+systemctl stop docker-web1.service | at 1am tomorrow
+systemctl start docker-web1.service | at now +17 hours
+echo "hello world from at" > /tmp/hello | at now +1 minutes
+atq
+at -l
+at --help
+man at
+at -c 12
+man at
+atq
+atrm 14
+atq
+at -c 12
+at -v 12
+at --help
+at -l 12
+find / -name marcinDELIMITER23067c08
+at -c 12 | bash
+at -c 12 
+at -c 12 | echo 
+atqc () { atq|perl -ne'($q,$j)=/((\d+).*)/;qx(at -c $j)=~/(marcinDEL\w+).\n(.*?)\n\1/s;print"$q $2"'; }
+cd /var/log/
+ls -la
+less /var/log/messages
+atq
+at -c 12 | bash
+at -c 12
+at -l
+at -lv
+at -v
+at -V
+atq -V
+cd 
+less .bash_history 
+history
+atq
+at -l 13
+atq 13
+at -c 13
+echo $marcinDELIMITER614c3855
+date
+man date
+date +%d%m%y
+date +%d%m%Y
+date +%d-%m-%Y
+date +%d-%m-%Y_%H:%M.%S
+echo logfile_`date +%d%m%Y-%H%M`.log
+hwclock
+hwclock;date
+hwclock;hwclock -s
+hwclock --help
+timedatectl 
+timedatectl set-timezone America/Los_Angeles
+timedatectl 
+date
+timedatectl set-timezone Asia/Manila 
+date
+timedatectl 
+timedatectl set-timezone Europe/Warsaw 
+date
+timedatectl list-timezones 
+timedatectl ntp-servers
+timedatectl ntp-servers list
+timedatectl ntp-servers --help
+timedatectl set-ntp no
+date
+timedatectl 
+timedatectl set-ntp yes
+timedatectl 
+dnf install ntp
+dnf install ntpd
+systemctl status chrondy
+systemctl status chrony
+systemctl status chronyd
+vi /etc/chrony.conf 
+chronyc sources
+chronyc sources -h
+chronyc sources -v
+systemctl restart chronyd
+chronyc sources 
+systemctl restart sshd | at 15:00 12/23/2023
+systemctl restart sshd | at 15:00 12/24/2023
+cd /etc/cron.d/
+ls -la
+cat 0hourly
+cd ..
+ls -la cron.daily/
+ls -la cron.monthly/
+ls -la cron.weekly/
+ls -la cron.hourly/
+cat cron.hourly/0anacron 
+cd /
+ls -la 
+cd /root/
+mkdir tmp
+cd tmp
+pwd
+cd /tmp
+pwd
+ls -la
+cd
+ls -la
+ls -lai
+cat /proc/filesystems 
+cat /proc/filesystems |grep -v nodev
+ls -la
+ln -s lin2_Dec/ gitrepo
+ls -la
+cd gitrepo/
+pwd
+ls -la
+cd
+ln -s std.out softlink
+ls -la
+ls -lai
+vi softlink 
+vi std.out 
+vi softlink 
+vi std.out 
+cat std.out 
+rm std.out
+ls -la
+vi softlink 
+ls -la
+ln std.out hardlink
+ls -lai
+vi std.out 
+vi hardlink 
+vi std.out 
+rm std.out
+vi hardlink 
+ln hardlink std.out
+ln std.out /tmp/hard2
+ln std.out /usr/plik3
+ls -lai std.out 
+find / -inum 16777384
+df -h
+df -hT
+ls -la /dev/mapper/
+swapon -s
+ls -la /dev/dm*
+ls -la /dev/tty
+du -sh /
+du -sh /*
+df -h
+du -sh /* | grep G
+cd /var/log
+du -sh *
+du -sh * | grep -v "K" | grep -v "M"
+du -sh * | grep -v "K" 
+du -sh * | grep -v "K" | awk '{ $1 > 0 }'
+du -sh * | grep -v "K" | awk '$1 > 0'
+blkid
+lsblk
+lshw -class disk
+lshw -class disk --short
+lshw -class disk -short
+lshw -class disk
+lshw -class network
+lshw -class network -short
+lshw -short
+lshw -class disk
+cat /proc/partitions 
+partprobe --help
+partprobe -s
+cat /proc/partitions 
+for host in /sys/class/scsi_host/*; do echo "- - -" > /sys/class/scsi_host/$host/scan; ls /dev/sd*; done
+for host in /sys/class/scsi_host/*; do echo "- - -" > $host/scan; ls /dev/sd*; done
+fdisk /dev/sdb
+lsblk
+fdisk /dev/sdb
+fdisk /dev/sdb1
+fdisk /dev/sdb
+gdisk /dev/sdb
+lsblk
+cd
+mkdir /app1
+mkfs -h
+mkfs.xfs /dev/sdb1
+mount /dev/sdb1 /app1/
+df -hT
+cd /app1/
+mkdir test
+touch plik1
+ls -la
+cd ..
+cd
+vi /etc/fstab 
+umount /app1 
+df -h
+mount -a
+df -h
+umount /app1 
+vi /etc/fstab 
+mount -a
+vi /etc/fstab 
+blkid
+vi /etc/fstab 
+df -h
+mount -a
+df -h
+xfs_admin -L App1 /dev/sdb1
+cd /app1/
+umount /app1
+cd
+umount /app1
+xfs_admin -L App1 /dev/sdb1
+mount -a
+df -h
+blkid
+vi /etc/fstab 
+df -h
+umount /app1 
+mount -a
+df -h
+e2label --help
+xfs_fsr /dev/sdb1
+xfs_db -help
+xfs_db --help
+man xfs_db
+xfs_db -r /dev/sdb1
+ls -la
+cd /app1/
+cp -rp /tmp/* .
+cp -rp /root/* .
+df -h
+cd
+xfs_db -r /dev/sdb1
+xfs_fsr /dev/sdb1
+cd /app1/
+ls -la
+ls -la backup/
+rm -rf backup/m*
+df -h
+xfs_fsr /dev/sdb1
+xfs_db -r /dev/sdb1
+xfs_fsr /dev/sdb1
+rm -rf backup/l*
+rm -rf backup/k*
+xfs_fsr /dev/sdb1
+xfs_fsr -m /proc/mounts -t 7200 -f /tmp/.fsrlast_xfs
+xfs_db -r /dev/sdb1
+df -h
+rm -rf backup/a*
+rm -rf backup/b*
+df -h
+rm -rf backup/c*
+rm -rf backup/d*
+rm -rf backup/e*
+df -h
+xfs_db -r /dev/sdb1
+xfs_fsr -m /proc/mounts -t 7200 -f /tmp/.fsrlast_xfs
+xfs_db -r /dev/sdb1
+e4defrag --help
+man e4defrag 
+cd 
+man /etc/fstab
+man mount
+df -h
+ls -la /boot/
+ls -la /boot/ -h
+df -h
+lsblk
+vi /etc/fstab 
+gdisk /dev/sdb
+lsblk
+partprobe 
+lsblk
+partprobe -s
+lsblk
+umount /app1 
+gdisk /dev/sdb
+partprobe -s
+lsblk
+wipefs -h
+wipefs -a /dev/sdb
+lsblk
+pvcreate /dev/sdb
+pvs
+vgcreate data /dev/sdb
+vgs
+vgdisplay 
+vgremove data
+vgs
+vgcreate data /dev/sdb --help
+vgcreate -s 1M data /dev/sdb 
+vgdisplay data
+lvcreate -n lvapp1 -L 1G data
+lvs
+mkfs.xfs /dev/mapper/data-lvapp1 
+mkfs.xfs /dev/data/lvapp1 
+ls -la /dev/mapper/
+blkid
+vi /etc/fstab 
+df -h
+mount -a
+df -h
+cd /app1/
+dd if=/dev/urandom of=file1 bs=950 count=1
+dd if=/dev/urandom of=file1 bs=950M count=1
+df -h
+ls -lah
+lvs
+vgs
+lvextend -L +500M /dev/mapper/data-lvapp1 
+df -h
+xfs_growfs /dev/mapper/data-lvapp1
+df -h
+dd if=/dev/urandom of=file2 bs=500M count=1
+df -h
+lvextend --help
+lvextend -l +100%FREE /dev/data/lvapp1
+lvs
+vgs
+xfs_growfs /dev/mapper/data-lvapp1
+df -h
+lsblk
+for host in /sys/class/scsi_host/*; do echo "- - -" > $host/scan; ls /dev/sd*; done
+lsblk
+pvcreate /dev/sdc
+vgextend 
+vgextend data /dev/sdc
+vgs
+lvs
+cd
+ls -la /app1/
+touch /app1/plik1
+touch /app1/testplik
+mkdir /app1/testdir
+ls -la /app1/
+ls -la > /app1/testplik 
+echo tst test test test data > /app1/plik1 
+cat /app1/plik1
+cat /app1/testplik 
+ls -lah /app1/
+xfsdump -f /tmp/app1.dump /app1/
+xfsdump -f /tmp/app1.dump /app1
+ls -la /tmp/
+ls -la /tmp/ -h
+umount /app1
+lvs
+lvreduce -L 1G /dev/mapper/data-lvapp1 
+lvs
+lvremove /dev/mapper/data-lvapp1
+lvcreate -L 1G -n lvapp data
+lvs
+lvremove /dev/mapper/data-lvapp
+lvcreate -L 1G -n lvapp1 data
+lvs
+mkfs.xfs /dev/mapper/data-lvapp1 
+mount /dev/mapper/data-lvapp1 /app1/
+cd /app1/
+ls -la
+cd
+xfsrestore -f /tmp/app1.dump /app1
+cd /app1/
+ls -la
+lvextend -L +600M /dev/data/lvapp1 
+xfsrestore -f /tmp/app1.dump /app1
+cd
+xfsrestore -f /tmp/app1.dump /app1
+mkfs.xfs /dev/data/lvapp1
+umount /app1 
+mkfs.xfs /dev/data/lvapp1
+mkfs.xfs /dev/data/lvapp1 -f
+mount /dev/mapper/data-lvapp1 /app1/
+ls -la /app1/
+lvs
+xfsrestore -f /tmp/app1.dump /app1
+ls -la /app1/
+man dumpe2fs 
+swapon -s
+swapoff -a
+swapon -s
+swapon -a
+swapon -s
+ls -la /app1/
+mkswap /app1/file1
+chmod 0600 /app1/file1
+swapon /app1/file1
+swapon -s
+swapoff /dev/dm-1 
+swapon -s
+swapoff -a
+swapon -a
+swapon -s
+lsblk
+umount /app1 
+lvremove /dev/data/lvapp1 
+vgremove data
+pvremove /dev/sdb
+pvs
+pvremove /dev/sdc
+pvs
+vgs
+lvs
+gdisk /dev/sdb
+lsblk
+pvcreate /dev/sdb /dev/sdc
+vgcreate 
+vgcreate vg1 /dev/sd[b-c]
+vgs
+vgdisplay 
+lvcreate -L 100M -n lv-mirror -m1 vg1
+lvcreate --help
+lvs
+lvs -a -o +devices
+lvcreate -L 50M -n lv-data vg1
+mkfs.xfs /dev/mapper/vg1-lv--data 
+mkfs.ext4 /dev/vg1/lv-mirror 
+mkdir /mirror
+mkdir /data
+mount /dev/vg1/lv-mirror /mirror/
+mount /dev/vg1/lv-data /data
+touch /mirror/plik1
+vi /mirror/plik2
+lsblk
+mv /mirror/* /data/
+cd /data/
+dd if=/dev/urandom of=testfile1 bs=20M count=1
+dd if=/dev/urandom of=testfile2 bs=30M count=1
+df -h
+ls -la /data/
+ls -la /data/ -h
+lvs
+lvcreate -L 52M -s -n lv-data-snap1 /dev/vg1/lv-data
+rm /data/plik1 
+rm /data/testfile1
+ls -la /data
+cd
+umount /data
+lvs
+lvconvert --merge /dev/vg1/lv-data-snap1 
+lvs
+mount /dev/vg1/lv-data /data/
+cd /data/
+ls -la
+rm /data/plik1 
+rm /data/testfile1
+lvcreate -L 52M -s -n lv-data-snap1 /dev/vg1/lv-data
+rm /data/testfile2
+ls -la
+lvconvert --merge /dev/vg1/lv-data-snap1 
+lvs
+lvchange --refresh /dev/vg1/lv-data 
+lvs
+watch -n1 lvs
+cd 
+umount /data
+watch -n1 lvs
+lvchange --refresh /dev/vg1/lv-data 
+watch -n1 lvs
+lvs
+mount /dev/vg1/lv-data /data/
+ls -la /data/
+cd lin2_Dec/
+mkdir day2; cp -rp /etc/fstab day2/
+vi day1-history.txt 
+history
+history | awk '$1 > 969' | cut -c 8- > day2-history.txt 
