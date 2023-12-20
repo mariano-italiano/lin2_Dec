@@ -1,0 +1,331 @@
+lsmod | grep dm_crypt
+modprobe dm_crypt
+lsmod | grep dm_crypt
+dnf install cryptsetup
+lsblk
+df -h
+lvremove /dev/vg1/lv-data 
+lvremove /dev/vg1/lv-mirror 
+lvs
+vgs
+vgremove vg1
+pvs
+pvremove /dev/sd[b-c]
+wipefs -a /dev/sdb
+wipefs -a /dev/sdc
+cryptsetup -y lukFormat /dev/sdb
+cryptsetup -y luksFormat /dev/sdb
+cryptsetup luksOpen /dev/sdb my_secret
+ls -al /dev/mapper
+mkfs.xfs /dev/mapper/my_secret 
+mkdir /secret
+mount /dev/mapper/my_secret /secret/
+df -h
+cd /secret/
+mkdir test
+touch plik1
+c
+cd
+umount /secret 
+cryptsetup luksClose my_secret 
+ls -al /dev/mapper
+systemctl set-default graphical.target 
+vi /etc/crypttab 
+vi /etc/fstab 
+history
+history | awk '$1 > 501' | cut -c 8- > lin2_Dec/day3-history.txt
+cd lin2_Dec/
+ls -la
+git status
+for host in /sys/class/scsi_host/*; do echo "- - -" > $host/scan; ls /dev/sd*; done
+lbslk
+lsblk
+umount /secret 
+mkdir lin2_Dec/day3
+cp -rp /etc/crypttab lin2_Dec/day3/
+cp -rp /etc/fstab lin2_Dec/day3/
+vi /etc/crypttab 
+vi /etc/fstab 
+df -h
+cryptsetup luksClose my_secret 
+lsblk
+mdadm --help
+man mdadm
+lsblk
+mdadm -E /dev/sd[b-e]
+mdadm --create /dev/md5 --level=5 --raid-devices=3 /dev/sd[b-d]
+ls -la /dev/mapper/
+ls -la /dev/
+ls -la /dev/md*
+mdadm --details /dev/md5
+mdadm --detail /dev/md5
+mdadm -D /dev/md5
+mdadm --manage --add /dev/md5 /dev/sde
+mdadm -D /dev/md5
+mkfs.xfs /dev/md5 
+mkdir /raid5
+mount /dev/md5 /raid5
+cd /raid5
+dd if=/dev/urandom of=bigfile1 bs=1G count=1
+df -g
+df -h
+dd if=/dev/urandom of=bigfile2 bs=1G count=1
+dd if=/dev/urandom of=bigfile3 bs=1G count=1
+mdadm -D /dev/md5
+mdadm --manage --fail /dev/md5 /dev/sdc ; watch -n1 mdadm -D /dev/md5
+cd
+umount /raid5 
+mdadm --stop /dev/md5
+mdadm -D /dev/md5
+mdadm --assemble  /dev/md5
+mdadm --create /dev/md5 --level=5 --raid-devices=3 /dev/sd[b-d]
+mdadm -D /dev/md5
+mdadm --manage --add /dev/md5 /dev/sde
+mdadm -D /dev/md5
+mdadm -D --scan --verbose > /etc/mdadm.conf
+vi /etc/mdadm.conf
+mdadm --stop /dev/md5
+mdadm --assemble /dev/md5
+dnf install epel-release -y
+dnf install snapd –y
+dnf install snap –y
+dnf install snapd
+systemctl enable --now snapd.socket 
+systemctl status snapd.socket
+ln -s /var/lib/snapd/snap /snap
+snap install john-the-ripper
+history
+useradd testuser
+passwd testuser
+cat /etc/passwd
+cp -rp /etc/shadow passwords
+vi passwords 
+chmod 777 passwords
+john passwords 
+openssl passwd 6 salt xyz mojesilnehaslo
+openssl passwd -6 -salt xyz mojesilnehaslo
+echo "mojesilnehaslo" | sha256sum 
+openssl passwd -5 -salt xyz mojesilnehaslo
+less /etc/passwd
+ls -la /etc/passwd
+less /etc/passwd
+ls -la /etc/shadow
+less /etc/shadow
+chage -l
+less /etc/shadow
+chage -l root
+head /etc/shadow
+vi /etc/login.defs 
+useradd -h
+tail /etc/passwd
+ls -la /home/student/
+ls -la /home/testuser/
+vi /etc/default/useradd 
+cat /etc/skel
+ls -al /etc/skel
+mkdir /etc/myskel
+cd /etc/myskel
+ln -s /var/log/audit/ logs
+ls -la
+vi READE.ME
+ls -al
+cd
+useradd -u 1010 -G student -d /tmp/alicja -s /bin/sh -k /etc/myskel -c "Testowy user Alicja TNO: 12345" alicja
+useradd -u 1010 -G student -d /tmp/alicja -s /bin/sh -k /etc/myskel -c "Testowy user Alicja TNO 12345" alicja
+useradd -u 1010 -G student -d /tmp/alicja -s /bin/sh -k /etc/myskel -m -c "Testowy user Alicja TNO 12345" alicja
+cat /etc/passwd
+ls -la /tmp/alicja/
+su - alicja
+useradd -m -c "Jan Kowalski" jan 
+passwd jan
+chage -d 0 jan
+chage -l jan
+id jan
+id salicja
+id alicja
+usermod --help
+usermod -G jan alicja
+id alicja
+usermod -aG student alicja
+id alicja
+passwd --help
+passwd -u testuser 
+userdel -r alicja
+ls -la /tmp/alicja
+ls -la /tmp/alicja/
+groupadd --help
+ls -la /home/testuser/
+vi /home/testuser/.bash_profile 
+vi /home/testuser/.bashrc 
+VAR1="test"
+VAR2=5
+echo $VAR1
+unset VAR1
+echo $VAR1
+chage --help
+chage -l testuser
+chage -E "2024-01-01" testuser 
+chage -l testuser
+chage -I 10 testuser 
+chage -M 3 testuser 
+chage -l testuser
+dnf install kornshell
+dnf install ksh
+vi /etc/sudoers
+visudo
+groupadd finanse
+groupadd ksiegowosc
+cat /etc/passwd
+userdel -r jan
+useradd -m networkadmin
+cat /etc/passwd
+vi /etc/sudoers.d/networkadmin
+vi /etc/sudoers.d/finanse
+visudo
+vi /etc/sudoers.d/finanse
+usermod -aG finanse testuser 
+id testuser
+su - testuser
+visudo 
+su - testuser
+su - networkadmin
+passwd networkadmin 
+su - networkadmin
+vi /etc/ssh/sshd_config
+ls -la
+ls -la /dev/
+umask
+ls -la
+umask 0440
+umask 
+touch umask_file1
+lsa -la umask_file1
+ls -la umask_file1
+umask 0066
+touch umask_file2
+ls -la umask_file2
+mkdir umask_dir
+ls -la umask_dir
+umask 0022
+ls -la /bin/passwd 
+touch effectiveSuid
+touch noneffectiveSuid
+ls -la *Suid
+chmod 4644 noneffectiveSuid
+chmod 4744 effectiveSuid 
+ls -la *Suid
+mkdir setgid
+chmod 2755 setgid/
+chown root:finanse setgid/
+ls -la setgid/
+touch setgid/testplik
+ls -al setgid/
+ls -la /
+su - student
+su - testuser 
+su - student
+mkdir /tmp/test123
+chown student:finanse /tmp/test123
+ls -la /tmp/test123
+chmod 740 /tmp/test123
+ls -la
+ls -la /tmp/test123/
+mount
+vi /etc/fstab 
+ls -la /tmp/test123/
+id testuser
+cat /etc/passwd
+id networkadmin 
+ls -la /tmp/test123/
+su - finsnse
+su - testuser 
+chmod 750 /tmp/test123/
+su - testuser 
+chmod 2750 /tmp/test123/
+setfacl -m u:networkadmin:rwx /tmp/test123/
+ls -la /tmp/test123/
+getfacl /tmp/test123/
+getfacl -c /tmp/test123/
+ls -la /tmp/test123/
+su - networkadmin 
+setfacl -m u:networkadmin:rwx,m:r /tmp/test123/
+getfacl -c /tmp/test123/
+su - networkadmin 
+setfacl -m u:networkadmin:rwx,m:rwx /tmp/test123/
+su - networkadmin 
+cat /etc/group
+setfacl -m g:ksiegowosc:rx /tmp/test123/
+getfacl -c /tmp/test123/
+useradd -m ksiegowy
+usermod -aG ksiegowosc ksiegowy 
+su - ksiegowy 
+setfacl -m g:ksiegowosc:rx /tmp/test123/ 
+setfacl -x g:ksiegowosc:rx /tmp/test123/
+setfacl -x g:ksiegowosc /tmp/test123/
+getfacl -c /tmp/test123/
+setfacl -d -m g:ksiegowosc:rx /tmp/test123/
+getfacl -c /tmp/test123/
+su - ksiegowy 
+setfacl -m g:ksiegowosc:rx /tmp/test123/ 
+getfacl -c /tmp/test123/
+su - ksiegowy 
+setfacl -m g:ksiegowosc:rwx /tmp/test123/ 
+su - ksiegowy 
+su - testuser
+setfacl -d -m g:finanse:r /tmp/test123/
+su - testuser
+su - ksiegowy 
+su - testuser
+su - student
+getfacl /tmp/test123/
+setfacl -k /tmp/test123/
+getfacl /tmp/test123/
+getfacl /tmp/test123/*
+setfacl -R -k /tmp/test123/
+getfacl /tmp/test123/*
+setfacl -R -b /tmp/test123/
+getfacl /tmp/test123/*
+getfacl -c /tmp/test123/*
+ls -la /tmp/
+ls -la /etc/pam.d/
+vi /etc/ssh/sshd.deny
+passwd t
+vi /etc/ssh/sshd.deny
+vi /etc/pam.d/sshd 
+less /var/log/secure
+vi /etc/ssh/sshd.deny
+less /var/log/secure
+vi /etc/ssh/sshd.deny
+vi /etc/pam.d/sshd 
+cp -rp /etc/pam.d/sshd lin2_Dec/day3/
+cp -rp /etc/ssh/sshd.deny lin2_Dec/day3/
+vi /etc/pam.d/sshd 
+vi /etc/security/time.conf 
+netstat -atlpv
+ps -ef | grep sshd
+systemctl isolate multi-user.target 
+ps -ef | grep sshd
+ps -ef | grep -e tty -e pts
+vi /etc/security/time.conf 
+date
+vi /etc/security/time.conf 
+date
+vi /etc/security/time.conf 
+cp -rp /etc/security/time.conf lin2_Dec/day3
+ls -la lin2_Dec/day3
+dnf install authselect-compat -y
+authconfig --enablefaillock --faillockargs="deny=3 unlock_time=120 even_deny_root" --update
+vi /etc/pam.d/system-auth 
+vi /etc/pam.d/password-auth 
+faillock --user student
+less /var/log/secure
+date
+faillock --user student
+tail -f /var/log/secure
+faillock --user student
+faillock --user student --reset
+faillock --user student
+cp -rp /etc/pam.d/system-auth lin2_Dec/day3/
+cp -rp /etc/pam.d/password-auth lin2_Dec/day3/
+history
+history | awk '$1 > 501' | cut -c 8- > lin2_Dec/day3-history.txt
