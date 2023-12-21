@@ -1,0 +1,6 @@
+student:x:1000:student
+testuser:x:1001:
+finanse:x:1012:testuser
+ksiegowosc:x:1013:ksiegowy
+networkadmin:x:1002:
+ksiegowy:x:1003:

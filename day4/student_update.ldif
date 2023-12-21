@@ -1,0 +1,5 @@
+# Modify user student
+dn: uid=student,ou=Users,dc=lab,dc=local
+changetype: modify
+replace: gecos
+gecos: Student ldap user

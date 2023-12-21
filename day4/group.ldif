@@ -1,0 +1,29 @@
+dn: cn=student,ou=Groups,dc=lab,dc=local
+objectClass: posixGroup
+objectClass: top
+cn: student
+userPassword: {crypt}x
+gidNumber: 10000
+
+dn: cn=testuser,ou=Groups,dc=lab,dc=local
+objectClass: posixGroup
+objectClass: top
+cn: testuser
+userPassword: {crypt}x
+gidNumber: 10001
+
+dn: cn=finanse,ou=Groups,dc=lab,dc=local
+objectClass: posixGroup
+objectClass: top
+cn: finanse
+userPassword: {crypt}x
+gidNumber: 10002
+memberUid: testuser
+
+dn: cn=ksiegowosc,ou=Groups,dc=lab,dc=local
+objectClass: posixGroup
+objectClass: top
+cn: ksiegowosc
+userPassword: {crypt}x
+gidNumber: 10003
+memberUid: ksiegowy

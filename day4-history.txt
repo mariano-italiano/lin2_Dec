@@ -1,0 +1,109 @@
+hostname -f
+hostname
+vi /etc/hosts
+dnf install openldap-servers openldap-clients -y
+systemctl status slapd
+systemctl enable --now slapd
+systemctl status slapd
+netstat -vatnulp
+slappasswd
+cd lin2_Dec/
+mkdir day4
+cd day4
+vi adminpw.ldif
+ldapadd --help
+ldapadd -Y EXTERNAL -H ldapi:/// -f adminpw.ldif 
+ls -la /etc/openldap/schema/
+for schema in cosine.ldif nis.ldif inetorgperson.ldif; do ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/$schema; done
+slappasswd
+vi ldapdomain.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f ldapdomain.ldif 
+vi domaintree.ldif
+ldapadd --help
+ldapadd -x -D cn=Manager,dc=lab,dc=local -W -f domaintree.ldif
+wget http://mirror.centos.org/altarch/7/os/aarch64/Packages/migrationtools-47-15.el7.noarch.rpm
+rpm -ivh migrationtools-47-15.el7.noarch.rpm 
+dnf localinstall migrationtools-47-15.el7.noarch.rpm
+cd /usr/share/migrationtools/
+ls -la
+cat /etc/passwd
+vi /root/lin2_Dec/day4/passwd
+vi /etc/group
+vi /root/lin2_Dec/day4/passwd
+vi /root/lin2_Dec/day4/group
+vi /root/lin2_Dec/day4/passwd
+./migrate_group.pl /root/lin2_Dec/day4/group /root/lin2_Dec/group.ldif
+./migrate_passwd.pl /root/lin2_Dec/day4/passwd /root/lin2_Dec/day4/passwd.ldif
+cd /root/lin2_Dec/day4/
+mv ../group.ldif .
+vi group.ldif 
+vi ldapdomain.ldif 
+vi domaintree.ldif 
+vi group.ldif 
+sed 's/ou=Group/ou=Groups/g' group.ldif 
+sed -i 's/ou=Group/ou=Groups/g' group.ldif 
+sed 's/dc=padl,dc=com/dc=lab,dc=local/g' group.ldif 
+sed -i 's/dc=padl,dc=com/dc=lab,dc=local/g' group.ldif 
+vi group.ldif 
+vi passwd.ldif 
+vi domaintree.ldif 
+sed 's/ou=People,dc=padl,dc=com/ou=Users,dc=lab,dc=local/g' passwd.ldif 
+sed -i 's/ou=People,dc=padl,dc=com/ou=Users,dc=lab,dc=local/g' passwd.ldif 
+vi passwd.ldif
+vi group.ldif 
+vi passwd.ldif
+ldapadd -x -D cn=Manager,dc=lab,dc=local -W -f group.ldif
+ldapadd -x -D cn=Manager,dc=lab,dc=local -W -f passwd.ldif 
+ldapsearch --help
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost
+ldapsearch -x -b ou=Group,dc=lab,dc=local -H ldap://localhost
+ldapsearch -x -b ou=Groups,dc=lab,dc=local -H ldap://localhost
+ldapsearch -x -b ou=Users,dc=lab,dc=local -H ldap://localhost
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "objectClass=account" dn cn homeDirectory
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "homeDirectory=/home/*" cn gekos
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "cn=test*" cn gekos
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "(&(cn=test*)(objectClass=account))" cn homeDirectory
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "(|(cn=test*)(cn=student))" cn homeDirectory
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "cn:caseExactMatch:=Testuser" cn homeDirectory
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "cn:caseExactMatch:=Manager" cn homeDirectory
+student_update.ldif
+vi student_update.ldif
+ldapmodify -x -W -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -f student_update.ldif 
+vi student_update.ldif
+useradd --help
+vi student_update.ldif
+ldapmodify -x -W -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -f student_update.ldif 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "cn:caseExactMatch:=student" cn homeDirectory gecos
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "cn:caseExactMatch:=Student" cn homeDirectory gecos
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D "cn=Manager,dc=lab,dc=local" -W "cn:caseExactMatch:=Student"
+systemctl disable --now slapd
+systemctl status slapd
+dnf -y install freeipa-server freeipa-server-dns freeipa-client -y
+ipa-server-install --help
+ipa-server-install --setup-dns
+ipa-server-install --setup-dns --skip-mem-check
+netsat -vatnulp
+netstat -vatnulp
+systemctl disable --now docker
+netstat -vatnulp
+q
+systemctl disable --now docker
+ipa-server-install --setup-dns --skip-mem-check
+ipa 
+ipa help topics
+ipa user-add --help
+ipa user-add mkujawski --first Marcin --last Kujawski --password --email marcin@gmail.com
+klist
+kinit admin
+klist
+ipa user-add mkujawski --first Marcin --last Kujawski --password --email marcin@gmail.com
+id mkujawski
+ls -la /home
+cat /etc/hosts
+ssh mkujawski@lab.local@centos8-server
+git status
+ls -al
+cd ..
+history
+history | awk '$1 > 853' | cut -c 8- > day4-history.txt
