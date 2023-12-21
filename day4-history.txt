@@ -258,3 +258,149 @@ ls -la /var/log/journal/
 cd lin2_Dec/
 history
 history | awk '$1 > 853' | cut -c 8- > day4-history.txt
+git status
+git add .
+git commit -m "Adding day4 files"
+git push
+git status
+ls -la /var/log/journal/
+ls -la /var/log/journal/c82189cf478b4556b585ec7703a4bdce/
+ls -la /run/log/journal/
+journalctl 
+journalctl -b
+vi /etc/rsyslog.conf 
+systemctl restart rsyslog.service 
+systemctl restart sshd
+systemctl restart chronyd
+journalctl 
+logger "test log line from command line from my app1"
+less /var/log/messages
+cd lin2_Dec/day4
+vi sshd.conf
+vi rsyslog-filter.conf
+cp -rp /etc/rsyslog.conf rsyslog-client.conf
+cat sshd.conf
+vi /etc/rsyslog.d/sshd.conf
+systemctl restart sshd
+systemctl restart rsyslog
+systemctl restart sshd
+less /var/log/sshd.log 
+vi /etc/logrotate.conf 
+vi /etc/logrotate.d/sshd-rotate
+ls -la /var/log/sshd.log
+ls -la /var/log/sshd.log -h
+systemctl restart sshd
+ls -la /var/log/sshd.log
+ls -la /var/log/sshd.log -h
+ls -la /var/log/sshd.log
+systemctl restart sshd
+ls -la /var/log/sshd.log -h
+logrotate -d /etc/logrotate.d/sshd-rotate
+logrotate -f /etc/logrotate.d/sshd-rotate
+ls -la /var/log/ssh*
+ip a s
+ip addr add 192.168.1.190/24 dev ens33
+ifconfig 
+ip s
+ip a
+ip route
+route -n
+nslookup google.com
+nslookup 
+ping wp.pl
+vi /etc/resolv.conf 
+ping wp.pl
+nslookup 
+vi /etc/resolv.conf 
+nmcli connection down ens33 ; nmcli connection up ens33 
+vi /etc/resolv.conf 
+vi /etc/nsswitch.conf
+vi /etc/hosts
+ping wp.pl
+vi /etc/nsswitch.conf
+ping wp.pl
+vi /etc/resolv.conf 
+nmcli connection show
+nmcli device status
+nmcli device show
+nmcli device show ens33
+nmcli connection add con-name dmz ifname ens33 type ethernet ipv4.addresses 192.168.1.191/24 ipv4.gateway 192.168.1.200
+nmcli conn show
+nmcli device show dmz
+nmcli connection show dmz
+nmcli connection modify dmz ipv4.dns 8.8.8.8 
+nmcli connection modify dmz ipv4.dhcp-fqdn centos9.lab.local
+nmcli connection modify dmz ipv4.dad-timeout 10
+nmcli connection show dmz
+nmcli c s
+nmcli c edit dmz
+nmcli connection show dmz
+ls -la
+ls -la ../../../
+ls -la ../../
+cat ../../.nmcli-history
+nmtui
+nmtui-edit
+nmtui-hostname 
+nmtui
+systemctl status firewalld
+systemctl start firewalld
+systemctl status firewalld
+firewall-cmd --list-all
+firewall-cmd --state
+firewall-cmd --get-default-zone 
+firewall-cmd --get-zones
+firewall-cmd --zone=trusted --list-all
+firewall-cmd --zone=work --list-all
+ls -la /usr/lib/firewalld/
+ls -la /usr/lib/firewalld/zones/
+ls -la /usr/lib/firewalld/services/
+less  /usr/lib/firewalld/services/ssh.xml 
+firewall-cmd --zone=public --add-service=freeipa-ldap --permanent
+firewall-cmd --zone=public --add-service=freeipa-ldaps --permanent
+firewall-cmd --zone=public --add-service=https --permanent
+firewall-cmd --zone=public --add-service=http --permanent
+firewall-cmd --zone=public --add-service=kerberos --permanent
+firewall-cmd --zone=public --add-port 53/udp --permanent
+firewall-cmd --zone=public --add-port 53/tcp --permanent
+less  /usr/lib/firewalld/services/freeipa-ldap
+less  /usr/lib/firewalld/services/freeipa-ldap.xml 
+firewall-cmd --list-all
+firewall-cmd reload
+firewall-cmd --reload
+firewall-cmd --list-all
+firewall-cmd --new-zone development --permanent
+firewall-cmd --reload
+firewall-cmd --get-zones
+firewall-cmd --new-service=myWebApp --set-description="My custom web app" --permanent
+firewall-cmd --reload
+firewall-cmd --service --add-service=https --permanent 
+firewall-cmd --service --add-port 443/tcp --permanent 
+firewall-cmd --service --add-port443/tcp --permanent 
+firewall-cmd --service myWebApp --add-port443/tcp --permanent 
+firewall-cmd --service myWebApp --add-port 443/tcp --permanent 
+firewall-cmd --service myWebApp --add-port 22/tcp --permanent 
+firewall-cmd --service myWebApp --add-port 2049/tcp --permanent 
+cat /etc/services | grep nfs
+firewall-cmd --service myWebApp --add-port 2049/udp --permanent 
+firewall-cmd --service myWebApp --add-port 3306/udp --permanent 
+firewall-cmd --service myWebApp --add-port 3306/tcp --permanent 
+firewall-cmd --service myWebApp --add-port 53/tcp --permanent 
+firewall-cmd --service myWebApp --add-port 53/udp --permanent 
+firewall-cmd --service myWebApp --add-port 909053/tcp --permanent 
+firewall-cmd --service myWebApp --add-port 9090/tcp --permanent 
+firewall-cmd --service myWebApp --add-protocol=icmp --permanent 
+firewall-cmd --reload
+firewall-cmd --permanent --service myWebApp --set-destination=ipv4:192.168.1.100/32
+firewall-cmd --reload
+firewall-cmd --zone development --list-all
+firewall-cmd --permanent --zone=development --add-service=myWebApp
+firewall-cmd --reload
+firewall-cmd --zone development --list-all
+find / -name myWebApp.xml
+cat /etc/firewalld/services/myWebApp.xml
+cp -rp /etc/firewalld/services/myWebApp.xml .
+tail -2 ../day4-history.txt 
+history
+vi ../day4-history.txt 
+history | awk '$1 > 735' | cut -c 8- > ../day4-history.txt 

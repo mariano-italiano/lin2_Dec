@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <port port="443" protocol="tcp"/>
+  <port port="22" protocol="tcp"/>
+  <port port="2049" protocol="tcp"/>
+  <port port="2049" protocol="udp"/>
+  <port port="3306" protocol="udp"/>
+  <port port="3306" protocol="tcp"/>
+  <port port="53" protocol="tcp"/>
+  <port port="53" protocol="udp"/>
+  <port port="9090" protocol="tcp"/>
+  <protocol value="icmp"/>
+  <destination ipv4="192.168.1.100/32"/>
+</service>
