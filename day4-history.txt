@@ -107,3 +107,154 @@ ls -al
 cd ..
 history
 history | awk '$1 > 853' | cut -c 8- > day4-history.txt
+git status
+git add .
+git status
+git commit -m "Adding ldap files"
+git push
+ps -ef
+ps -edf
+ps aux
+man ps
+ps axo stat,tty,ppid,pid,pcpu,comm
+man bash
+man ulimit
+ps -elf
+ps -eL
+ps -eLfy
+ps -eLy
+ps -eLf
+ps -U apache
+ps -Uef apache
+ps -U apache -e
+ps -U apache 
+ps -ef | grep -e 23206 -e 23214 -e 23215 -e 23216 -e 23854
+ps -eLf | grep -e 23206 -e 23214 -e 23215 -e 23216 -e 23854
+pgrep httpd
+pgrep -v httpd
+pgrep -v httpd -u apache
+pgrep -u root
+ulimit -Sa
+ulimit -Ha
+history | awk '$1 > 853' | cut -c 8- > day4-history.txt
+vi day4
+vi day4-history.txt 
+su - student
+vi log-script.sh
+chmod +x log-script.sh
+nice -n 10 ./log-script.sh 
+nice -n 10 ./log-script.sh &
+ps -ely 24499
+ps -ely | grep 24499
+renice -20 24499
+ps -ely | grep 24499
+renice 30 24499
+kill -15 24499
+ps -ely | grep 24499
+kill -l
+pgrep -v httpd -u apache
+ps -Uef apache
+kill =-l
+kill -l
+ps -ef | grep sshd
+kill -19 24644
+kill -18 24644
+kill -15 24644
+ls
+mv log-script.sh day4
+cd day4
+cp -rp log-script.sh script.sh
+vi script.sh
+mv script.sh skrypt.sh
+vi skrypt.sh
+chmod +x skrypt.sh
+./skrypt.sh &
+kill -2 24739
+tail -f /tmp/skrypt.signals 
+ps -ef | grep skrypt
+kill -9 24863
+sysctl -a | wc- l
+sysctl -a | wc -l
+sysctl -a 
+cd /proc/
+ls -la
+touch plik
+ls -la /proc/sys/
+sysctl -a | grep -i ip_forward
+cat /proc/sys/net/ipv4/ip_forward
+echo "0" > /proc/sys/net/ipv4/ip_forward
+sysctl -a | grep -i ip_forward
+echo "1" > /proc/sys/net/ipv4/ip_forward
+sysctl -a | grep -i ip_forward
+vi /etc/sysctl.conf 
+sysctl -a | grep -i ip_forward
+sysctl -p
+sysctl -a | grep -i ip_forward
+sysctl -a | grep -i hugepages
+sysctl -a | grep -i swappin
+sysctl -a | grep -i swappi
+sysctl -a | grep -i ip_default-ttl
+sysctl -a | grep -i ip_default_ttl
+ping wp.pl
+vi /etc/resolv.conf 
+ping wp.pl
+sysctl -a | grep -i pid_max
+sysctl -a | grep -i thread
+sysctl -a | grep -i icmp_echo
+vi /etc/sysctl.conf 
+sysctl -p
+vi /etc/sysctl.conf 
+sysctl -p
+vi /etc/sysctl.conf 
+sysctl -p
+vi /etc/sysctl.conf 
+ping wp.pl
+vi /etc/sysctl.conf 
+ping wp.pl
+sysctl -p
+ping wp.pl
+vi /etc/sysctl.conf 
+sysctl -p
+lsmod
+modinfo e1000
+insmod --help
+rmmod --help
+modprobe dm_crypt
+lsmod | grep -p
+lsmod | grep dm_cry
+modprobe --help
+modprobe -r dm_crypt
+lsmod | grep dm_cry
+find /lib/modules/$(uname -r) -type f -name "*.ko*"
+uname -r
+modinfo vmxnet3
+systemd-analyze 
+systemd-analyze blame
+journalctl 
+journalctl -b
+journalctl --since=today
+journalctl --since="-10min"
+journalctl --since="-1h"
+journalctl -p err
+journalctl -f
+journalctl -u crond
+journalctl -o verbose -u sshd
+journalctl --since="-2h" UNIT=sshd.service
+journalctl --since="-2h" -u sshd
+journalctl --since="-2h" _SYSTEMD_UNIT="sshd.service"
+journalctl --since="-2h" UNIT="sshd.service"
+journalctl --since="-2h" _SYSTEMD_UNIT="sshd.service"
+journalctl --since="-2h" -u ss
+journalctl --since="-2h" -u sshd
+vi /etc/systemd/journald.conf 
+ls -la /var/log
+mkdir /var/log/journal
+cd /run/log/journal/
+ls -la
+ls -la c82189cf478b4556b585ec7703a4bdce/
+cd
+systemctl restart systemd-journald
+ls -la /var/log/journal/
+cd lin2_Dec/
+history
+history | awk '$1 > 853' | cut -c 8- > day4-history.txt
