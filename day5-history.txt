@@ -189,3 +189,134 @@ cd lin2_Dec/
 vi day5-history.txt 
 history
 history | awk '$1 > 638' | cut -c 8- >> day5-history.txt
+ls -la
+mkdir named
+mkdir postfix
+git astatus
+git status
+git add .
+git commit -m "Adding day5 files"
+git config --global user.email "markuj5@gmail.com"
+git commit -m "Adding day5 files"
+git push
+git status
+git pull
+dnf install unbound-
+dnf install unbound -y
+vi /etc/unbound/unbound.conf 
+systemctl start unbound
+systemctl stop unbound
+dnf install bind -y
+vi /etc/named.conf 
+cp -rp /etc/named.conf /etc/named.conf.bak
+vi /etc/named.conf
+vi /var/named/lab.local.zone
+vi /var/named/named.localhost
+vi /var/named/lab.local.zone
+vi /var/named/1.168.192.in-addr.arpa.zone
+cp /var/named/lab.local.zone /var/named/1.168.192.in-addr.arpa.zone
+vi 
+vi /var/named/1.168.192.in-addr.arpa.zone
+systemctl restart named
+systemctl status named
+vi /etc/named.conf
+systemctl restart named
+systemctl status named
+vi /var/named/lab.local.zone
+vi /var/named/1.168.192.in-addr.arpa.zone
+systemctl restart named
+systemctl status named
+ls -la /var/named
+chown named:named -R /var/named
+ls -la /var/named
+systemctl restart named
+vi /etc/named.conf
+cp -rp /etc/named.conf named/named1.conf
+vi /etc/named.conf
+cp -rp /var/named/lab.local.zone /var/named/lab.local-internal.zone
+ls -la /var/named
+vi lab.local-internal.zone
+vi /var/named/lab.local-internal.zone 
+systemctl restart named
+systemctl status named
+cp -rp /etc/named.conf named/
+dnf install postfix -y
+vi /etc/postfix/main.cf
+systemctl start postfix.service 
+systemctl status postfix.service
+dnf install mail -y
+dnf provides mail
+dnf install s-nail -y
+echo "Test email" | mail -s "Test 123" root@localhost
+less /var/log/maillog
+echo "Test email" | mail -s "Test 123" student@localhost
+su - student
+mutt
+vi /etc/resolv.conf 
+systemctl stop bind
+systemctl stop named
+ping wp.pl
+systemctl stop bind
+mutt
+dnf install mutt
+mutt
+su - student
+vi /etc/postfix/main.cf
+vui /etc/postfix/sasl_passwd
+vi /etc/postfix/sasl_passwd
+chmod 600 /etc/postfix/sasl_passwd
+postmap /etc/postfix/sasl_passwd
+man postman
+man postmap
+posfix check
+postfix check
+systemctl restart postfix
+msg.txt
+vi msg.txt
+mail -s "Życzenia od mamy" markuj5@gmail.com < msg.txt 
+less /var/log/maillog
+postqueue -p
+watch -n1 postqueue -p
+less /var/log/maillog
+dnf install dovecot
+vi /etc/dovecot/dovecot.conf 
+vi /etc/dovecot/conf.d/10-mail.conf
+systemctl restart dovecot
+su - student
+vi /etc/dovecot/conf.d/10-ssl.conf 
+mv /etc/pki/dovecot/certs/dovecot.pem /etc/pki/dovecot/certs/dovecot.old.pem
+mv /etc/pki/dovecot/private/dovecot.pem /etc/pki/dovecot/private/dovecot.old.pem 
+vi /etc/pki/dovecot/dovecot-openssl.cnf 
+cd /usr/share/doc/dovecot/
+ls -la
+bash mkcert.sh
+vi /etc/pki/dovecot/dovecot-openssl.cnf 
+bash mkcert.sh
+rm /etc/pki/dovecot/private/dovecot.pem
+bash mkcert.sh
+ls -la /etc/pki/dovecot/private/dovecot.pem 
+ls -la /etc/pki/dovecot/certs/
+vi /etc/pki/dovecot/dovecot-openssl.cnf 
+rm /etc/pki/dovecot/private/dovecot.pem
+bash mkcert.sh
+systemctl restart dovecot
+su - student
+mutt -f imap://root@centos9
+usermod -aG mail root
+mutt -f imap://root@centos9
+q
+id
+vi /etc/group
+mutt -f imap://root@centos9
+q
+cd
+cd lin2_Dec/
+cd postfix/
+cp -rp /etc/postfix/main.cf
+cp -rp /etc/postfix/main.cf .
+cp -rp /etc/dovecot/dovecot.conf .
+cp -rp /etc/dovecot/conf.d/10-ssl.conf .
+cp -rp /etc/dovecot/conf.d/10-mail.conf .
+cd ..
+history
+history | awk '$1 > 704' | cut -c 8- >> day5-history.txt
