@@ -123,3 +123,69 @@ ls -la
 less -la
 less day5-history.txt
 history | awk '$1 > 1000' | cut -c 8- > day5-history.txt
+getenforce 
+sestatus 
+ls -lZ
+ps -Zaux
+ls -laZ
+ls -laZ /var/www/html
+ls -laZ /var/www/
+ls -laZ /var/
+id -Z
+semanage port -l
+semanage fcontext -l
+getsebool -a 
+dnf install policycoreutils-python policycoreutils-devel setroubleshoot-server
+dnf install policycoreutils-devel setroubleshoot-server
+vi /etc/ssh/sshd_config
+systemctl restart sshd
+systemctl status sshd
+semanage port -l | grep ssh
+less /var/log/messages
+cat /var/log/messages | grep setroubleshot
+cat /var/log/messages | grep setroubleshoot
+sealert -l 2260ca31-b1ca-4b5f-bb71-aeae7a9edd7c
+semanage port -a -t ssh_port_t -p tcp 2222
+semanage port -l | grep ssh
+systemctl restart sshd
+systemctl status sshd
+dnf install httpd -y
+vi /etc/hosts
+vi /etc/httpd/httpd.conf
+vi /etc/httpd/conf/httpd.conf 
+mkdir /web/docs
+mkdir /web/docs -p
+cd /web/docs
+vi index.html
+systemctl restart httpd
+systemctl status httpd
+cat /var/log/messages | grep setroubleshoot
+sealert -l 2f92585d-db8e-4d1d-9c81-a55e153914c1
+ls -laZ /var/www/html
+semanage fcontext -h
+semanage fcontext -l | grep httpd_sys_content_t
+semanage fcontext -a -t httpd_sys_content_t "/web(/.*)?"
+restorecon -Rv /web
+dnf install mariadb-server
+mkdir /mydb
+vi /etc/my.cnf.d/mariadb-server.cnf 
+cd
+systemctl start mariadb.service 
+systemctl status mariadb.service
+ls -la /var/lib/mysql/
+ls -la /mydb
+chown mysql:mysql /mydb
+systemctl start mariadb.service 
+systemctl status mariadb.service
+cat /var/log/messages|grep -i setrouble
+sealert -l dd881be8-6806-4084-a659-b51367336246
+ls -laZ /var/lib/mysq
+ls -laZ /var/lib/mysql
+semanage fcontext -a -t mysqld_db_t "/mydb(/.*)?"
+restorecon -Rv /mydb
+systemctl start mariadb
+systemctl status mariadb.service
+cd lin2_Dec/
+vi day5-history.txt 
+history
+history | awk '$1 > 638' | cut -c 8- >> day5-history.txt
