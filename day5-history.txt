@@ -58,3 +58,68 @@ tail day5-history.txt
 tail -20 day5-history.txt
 history
 history | awk '$1 > 1000' | cut -c 8- > day5-history.txt
+vi day5-iptables.txt
+git status
+ls -la /day5
+ls -la day5
+git add .
+git status
+git commit -m "Adding nfs and iptables" 
+git push
+dnf samba samba-common samba-client
+dnf install samba samba-common samba-client
+systemctl status smb
+systemctl start smb
+systemctl status smb
+cd
+mkdir /devops
+chmod 2770 /devops/
+groupadd devops
+chgrp devops /dev
+chgrp devops /devops/
+useradd -m alicja
+useradd -m linda
+usermod -aG devops alicja 
+chown linda /devops/
+ls -la /devops/
+mkdir /smb-public
+chown student:student /smb-public
+vi /etc/samba/smb.conf
+testparm 
+systemctl restart smb
+smbpasswd -a linda
+smbpasswd -a alicja
+smbpasswd -a student
+smbstatus
+watch -n1 smbstatus
+vi /etc/samba/smb.conf
+systemctl restart smb
+watch -n1 smbstatus
+vi /etc/samba/smb.conf
+systemctl restart smb
+vi /etc/samba/smb.conf
+ls -la /smb-public/
+watch -n1 smbstatus
+systemctl restart smb
+watch -n1 smbstatus
+mkdir /archiwumX
+groupadd fbi
+useradd -g fbi mulder
+useradd -g fbi scully
+useradd -g fbi fbiuser
+chgrp fbi /archiwumX/
+chmod 2770 /archiwumX/
+vi /etc/samba/smb.conf
+smbpasswd
+smbpasswd mulder
+smbpasswd -a mulder
+smbpasswd -a scully
+smbpasswd -a fbiuser
+systemctl restart smb
+getenforce
+history
+cd lin2_Dec/
+ls -la
+less -la
+less day5-history.txt
+history | awk '$1 > 1000' | cut -c 8- > day5-history.txt
