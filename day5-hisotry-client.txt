@@ -1,0 +1,12 @@
+dnf install ipa-client
+ipa-client-install
+ipa-client-install --force-join
+ls -la /nfs
+df -h
+showmount -e centos9
+mount centos9:/secureshare /nfs
+mount -o sec=krb5p centos9:/secureshare /nfs
+kinit admin
+klist
+mount -t nfs -o vers=4.2,sec=krb5p centos9:/secureshare /nfs
+

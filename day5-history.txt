@@ -1,0 +1,60 @@
+history 
+mkdir -p /nfs-share/{Production,Development}
+chgrp student /nfs-share/Development/
+chgrp student /nfs-share/Production/
+chmod 770 /nfs-share/Development/
+chmod 740 /nfs-share/Production/
+ls -la /nfs-share/
+id student
+dnf install nfs-utils -y
+systemctl status nfs-server.service 
+systemctl status rpcbind
+systemctl start nfs-server.service 
+systemctl status nfs-server.service 
+vi /etc/nfs.conf 
+systemctl restart nfs-server.service 
+vi /etc/exports
+exportfs -rav
+showmount -e localhost
+showmount -e centos9
+systemctl status iptables
+systemctl stop iptables
+ls -la /nfs-share/
+chmod 750 /nfs-share/Production/
+vi /etc/fstab 
+systemctl daemon-reload 
+systemctl restart remote-fs.target 
+systemctl restart local-fs.target 
+mkdir /nfs
+df -h
+cd /nfs
+df -h
+ls -la /nfs
+mount
+cd 
+vi /etc/fstab 
+vi /etc/exports
+ls -la /etc/krb5.keytab 
+kinit admin
+klist
+ipa-getkeytab -p nfs/centos9.lab.local@LAB.LOCAL -k /etc/krb5.keytab
+klist -k
+mkdir /secureshare
+chmod 777 /secureshare
+vi /etc/exports
+exportfs -rav
+systemctl restart nfs-server.service 
+vi /etc/exports
+cd lin2_Dec/
+vi day5-history.txt 
+cd day5/
+cp -rp /etc/exports
+cp -rp /etc/exports .
+cp -rp /etc/nfs.conf .
+cd ..
+vi day5-history.txt 
+vi day5-hisotry-client.txt
+tail day5-history.txt
+tail -20 day5-history.txt
+history
+history | awk '$1 > 1000' | cut -c 8- > day5-history.txt

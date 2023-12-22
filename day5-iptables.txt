@@ -1,0 +1,50 @@
+dnf install iptables-services iptablies-utils
+dnf install iptables-services iptables-utils
+systemctl start iptables.service 
+systemctl status iptables.service
+iptables -L -v -n
+iptables --help
+iptables -L -v -n
+iptables -F
+iptables -L -v -n
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -L -v -n
+ip -s link
+iptables -L -v -n
+ping localhost
+ping 192.168.1.90
+ping 192.168.1.1
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -L -v -n
+iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT 
+iptables -L -v -n
+ping wp.pl
+vi /etc/hosts
+ping wp.pl
+iptables -I OUTPUT 2 -p udp --dport 53 -j ACCEPT 
+ping wp.pl
+iptables -I INPUT 2 -m state --state ESTABLISHED,RELATED -j ACCEPT 
+ping wp.pl
+vi /etc/resolv.conf 
+ping wp.pl
+iptables -L -v -n
+iptables -A OUTPUT -p icmp -j ACCEPT 
+ping wp.pl
+ping 192.168.1.1
+iptables -A INPUT -p tcp --dport 443 -j ACCEPT 
+systemctl status ipa
+iptables -A INPUT -s 192.168.1.41 -j ACCEPT 
+iptables-save > /etc/sysconfig/iptabels
+vi /etc/sysconfig/iptabels
+iptables-restore < /etc/sysconfig/iptabels
+iptables -L -v -n
+ping wp.pl
+ping 192.168.1.1
+history
+cd lin2_Dec/
+history | awk '$1 > 1000' | cut -c 8- > day5-history.txt
+mkdir day5
+history | awk '$1 > 1000' | cut -c 8- > day5-iptables.txt
